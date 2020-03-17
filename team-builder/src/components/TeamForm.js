@@ -17,7 +17,7 @@ function TeamForm(props) {
     };
 
     const formSubmitHandler = (event) => {
-        event.prenentDefault();
+        event.preventDefault();
         console.log('In the form submit handler');
         props.addMember({
             ...formState,
