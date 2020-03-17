@@ -4,36 +4,52 @@ import '../App.css'
 function TeamForm(props) {
 
     const [formState, setFormState] = useState({
-        title: '',
-        role: '',
-        email: ''
+        name: '',
+        email: '',
+        role: ''
     })
+
+    const changeHandler = (event) => {
+        setFormState({
+            ...formState,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const formSubmitHandler = (event) => {
+        event.prenentDefault();
+        console.log('In the form submit handler');
+        props.addMember({
+            ...formState,
+            id: Date.now()
+        });
+    };
 
     return (
         <div>
-            <form style={{}}>
+            <form onSubmit={formSubmitHandler}>
                 <label htmlFor='fullName'>Full Name: </label>
                 <input
                     type='text'
-                    name='fullName'
-                    value={formState.title}
-
+                    name='name'
+                    value={formState.name}
+                    onChange={changeHandler}
                     placeholder='Enter full name here'
                 />
                 <label htmlFor='email'>Email: </label>
-                <input
+                <textarea
                     type='text'
                     name='email'
-                    value={formState.title}
-
+                    value={formState.email}
+                    onChange={changeHandler}
                     placeholder='Enter email here'
                 />
                 <label htmlFor='role'>Role: </label>
-                <input
+                <textarea
                     type='text'
                     name='role'
-                    value={formState.title}
-
+                    value={formState.role}
+                    onChange={changeHandler}
                     placeholder='Enter role here'
                 />
                 <button type='submit'>Add Member</button>

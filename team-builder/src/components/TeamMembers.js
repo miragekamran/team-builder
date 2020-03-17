@@ -4,10 +4,11 @@ import '../App.css';
 function TeamMembers(props) {
     return (
         <div className='team-list'>
-            {props.friends.map(friend => (
-                <div className='friend' key={friend.id}>
-                    <h2>{friend.title}</h2>
-                    <p>{friend.body}</p>
+            {props.members.map(newMember => (
+                <div className='newMember' key={newMember.id}>
+                    <h2>{newMember.name}</h2>
+                    <p>{newMember.email}</p>
+                    <p>{newMember.role}</p>
                 </div>
             ))}
         </div>

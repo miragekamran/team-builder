@@ -34,6 +34,19 @@
   color: #61dafb;
 } */
 
+.newMember {
+  background: #5a5a35;
+  border: 3px solid rgb(34, 95, 209);
+  border-radius: 3px;
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12), 0 5px 2px rgba(0, 0, 0, 0.24); */
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  margin: 16px auto;
+  text-align: left;
+  color: rgb(240, 233, 233)
+}
+
 form {
   display: flex;
   flex-flow: column nowrap;

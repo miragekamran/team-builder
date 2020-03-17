@@ -5,13 +5,24 @@ import './App.css';
 
 function App() {
 
-  const [stateList, setStateList] = useState([]);
+  const [stateList, setStateList] = useState([
+    {
+      name: 'Ahmad',
+      email: 'email.email@email.com',
+      role: 'another string'
+    }
+  ]);
+
+  const addMemberHandler = updateMember => {
+    console.log('adding members', updateMember);
+    setStateList([...stateList, updateMember]);
+  }
 
   return (
     <div className="App" >
       <h1>Team List</h1>
-      <TeamForm />
-      <TeamMembers friends={stateList}/>
+      <TeamForm addMember={addMemberHandler}/>
+      <TeamMembers members={stateList}/>
     </div>
   );
 }
