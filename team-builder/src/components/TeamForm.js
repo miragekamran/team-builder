@@ -18,12 +18,20 @@ function TeamForm(props) {
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-        console.log('In the form submit handler');
+        // console.log('In the form submit handler');
         props.addMember({
             ...formState,
             id: Date.now()
         });
+
+        setFormState({
+            name: '',
+            email: '',
+            role: ''
+        });
     };
+
+    
 
     return (
         <div>
@@ -35,14 +43,16 @@ function TeamForm(props) {
                     value={formState.name}
                     onChange={changeHandler}
                     placeholder='Enter full name here'
+                    required
                 />
                 <label htmlFor='email'>Email: </label>
                 <textarea
-                    type='text'
+                    type='email'
                     name='email'
                     value={formState.email}
                     onChange={changeHandler}
                     placeholder='Enter email here'
+                    required
                 />
                 <label htmlFor='role'>Role: </label>
                 <textarea
@@ -51,6 +61,7 @@ function TeamForm(props) {
                     value={formState.role}
                     onChange={changeHandler}
                     placeholder='Enter role here'
+                    required
                 />
                 <button type='submit'>Add Member</button>
             </form>
